@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "search-parallel": {
+      "type": "sse",
+      "url": "https://search.parallel.ai/mcp"
+    }
+  }
+}
