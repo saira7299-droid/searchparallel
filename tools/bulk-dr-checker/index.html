@@ -564,7 +564,7 @@
   let sortOrders = { domain: 'asc', dr: 'desc' };
   let isChecking = false;
 
-  const AHREFS_ENDPOINT = 'https://api.ahrefs.com/v3/public/domain-rating-free';
+  const AHREFS_ENDPOINT = '/api/dr';
   const DELAY_MS = 400; // ms between requests
 
   // ── Live domain count ──
@@ -636,10 +636,7 @@
   // ── Fetch DR for a single domain ──
   async function fetchDR(domain) {
     const url = `${AHREFS_ENDPOINT}?target=${encodeURIComponent(domain)}`;
-    const res = await fetch(url, {
-      method: 'GET',
-      headers: { 'Accept': 'application/json' }
-    });
+    const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return await res.json();
   }
